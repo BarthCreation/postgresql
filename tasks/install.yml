@@ -33,11 +33,10 @@
 
 - name: PostgreSQL | Make sure the dependencies are installed
   apt:
-    pkg: "{{item}}"
+    pkg: ['python-psycopg2', 'python-pycurl', 'locales']
     state: present
     update_cache: yes
     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
-  with_items: ["python-psycopg2", "python-pycurl", "locales"]
 
 - name: PostgreSQL | Install PostgreSQL
   apt:
