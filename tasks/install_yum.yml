@@ -14,10 +14,9 @@
 
 - name: PostgreSQL | Make sure the dependencies are installed
   yum:
-    name: "{{ item }}"
+    name: ['python-psycopg2', 'python-pycurl', 'glibc-common']
     state: present
     update_cache: yes
-  with_items: ["python-psycopg2", "python-pycurl", "glibc-common"]
 
 - name: PostgreSQL | Install PostgreSQL
   yum:
